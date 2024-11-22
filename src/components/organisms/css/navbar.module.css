@@ -17,19 +17,6 @@ nav > .navList {
     display: flex;
     align-items: center;
 }
-.navList > li{
-    display: flex;
-    align-items: center;
-    font-weight: 400;
-    font-size: 24px;
-    padding: 0 .625rem;
-}
-.navList > li:hover, .active{
-    height: 100%;
-    cursor: pointer;
-    color: white;
-    background: #0078D4;
-}
 
 .divider{
     background: #000;

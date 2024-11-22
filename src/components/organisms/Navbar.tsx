@@ -13,6 +13,7 @@ import stockHandleIcon from '../atom/icon/stockHandleIcon';
 import loggerIcon from '../atom/icon/loggerIcon';
 import loggerHandleIcon from '../atom/icon/loggerHandleIcon';
 import OptionIcon from '../atom/icon/optionIcon';
+import NavItem from '../atom/NavItem';
 
 const Navbar: React.FC = () => {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -30,18 +31,15 @@ const Navbar: React.FC = () => {
         <ul className={style.navList}>
             {navItems.map((item, index) => (
                 <React.Fragment key={index}>
-                    <li
-                        className={`${window.location.pathname === item.navigatelink ? style.active : ''}`}
-                        onMouseEnter={() => setHoveredIndex(index)}
-                        onMouseLeave={() => setHoveredIndex(null)}
-                        onClick={() => navigate(item.navigatelink)}
-                    >
-                        {hoveredIndex === index || window.location.pathname === item.navigatelink
-                            ? <item.hoverIcon />
-                            : <item.icon />
-                        }
-                        {item.text}
-                    </li>
+                    <NavItem
+                            text={item.text}
+                            icon={item.icon}
+                            hoverIcon={item.hoverIcon}
+                            navigatelink={item.navigatelink}
+                            isActive={window.location.pathname === item.navigatelink}
+                            isHovered={hoveredIndex === index}
+                            onHover={(hover) => setHoveredIndex(hover ? index : null)}
+                    />
                     <div className={style.divider}></div>
 
                     </React.Fragment>
