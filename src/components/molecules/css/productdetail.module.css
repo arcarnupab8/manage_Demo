@@ -1,0 +1,9 @@
+.content > img{
+    width: 100%;
+}
+
+.productInfo > div{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}

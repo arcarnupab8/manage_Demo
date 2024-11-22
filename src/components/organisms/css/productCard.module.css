@@ -1,0 +1,26 @@
+.divider{
+    height: 1px;
+    width: 100%;
+    background: black;
+}
+
+.dividerClick{
+    height: 1px;
+    width: 100%;
+    background: white;
+}
+
+.footer{
+    height: 50px;
+}
+
+.footer-wrap{
+    width: 100%;
+    margin: auto;
+    padding: 1rem;
+    display: flex;
+}
+
+.footer-wrap > div{
+    margin: 0 .625rem;
+}
