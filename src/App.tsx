@@ -9,23 +9,25 @@ import Borrow from './pages/Borrow'
 import Bills from './pages/Bills'
 import Stock from './pages/Stock'
 import Times from './pages/Times'
+import { WindowSizeProvider  } from './components/context/WindowSizeContext'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <div className='container'>
-      <Navbar/>
-      <div className='content'>
-        <Routes>
-          <Route path='/' element={<Moneylog/>}/>
-          <Route path='/borrow' element={<Borrow/>}/>
-          <Route path='/bills' element={<Bills/>}/>
-          <Route path='/stock' element={<Stock/>}/>
-          <Route path='/times' element={<Times/>}/>
-        </Routes>
+    <WindowSizeProvider>
+      <div className='container'>
+        <Navbar/>
+        <div className='content'>
+          <Routes>
+            <Route path='/' element={<Moneylog/>}/>
+            <Route path='/borrow' element={<Borrow/>}/>
+            <Route path='/bills' element={<Bills/>}/>
+            <Route path='/stock' element={<Stock/>}/>
+            <Route path='/times' element={<Times/>}/>
+          </Routes>
+        </div>
       </div>
-    </div>
+    </WindowSizeProvider>
   )
 }
 

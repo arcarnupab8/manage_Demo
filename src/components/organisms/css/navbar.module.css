@@ -6,16 +6,20 @@ nav{
     justify-content: space-between;
 }
 
-nav > .navList {
+.navBar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+}
+.navList{
+    display: flex;
+    align-items: center;
     list-style: none;
     margin: 0;
     padding: 0;
     height: 100%;
-}
-
-.navList{
-    display: flex;
-    align-items: center;
 }
 
 .divider{
@@ -25,5 +29,24 @@ nav > .navList {
 }
 
 .option{
-    padding: 2rem;
+    padding: 0 1rem;
+}
+
+.navMobile{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.navMobile > div{
+    width: 33%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 739px) {
+    nav{
+        background: #0078D4;
+    }
+    
 }
