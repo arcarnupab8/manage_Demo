@@ -33,9 +33,10 @@ const ProductCard: React.FC<ProductDetailProps> = ({ name, id, imgsrc, price, un
   return (
     <Card 
         sx={{ 
-            minWidth: 275,
+            width: 300,
+            height: 430,
             bgcolor: isClicked ? '#0078D4' : '#E0EFFF',
-            margin: "1rem 0",
+            margin: "1rem 1rem",
         }}
     >
         <CardActionArea onClick={handleCardClick}>
@@ -48,14 +49,21 @@ const ProductCard: React.FC<ProductDetailProps> = ({ name, id, imgsrc, price, un
                             </Avatar>
                         ): null
                     }
+                    sx={{
+                        height: '60px',
+                        display: 'flex',
+                        alignItems: 'center',
+                    }}
                     titleTypographyProps={{
                         sx: {
                             color: isClicked ? '#fff' : '#000',
+                            fontSize: '32px'
                         },
                       }}
                       subheaderTypographyProps={{
                         sx: {
                             color: isClicked ? '#fff' : '#000',
+                            fontSize: '16px'
                         },
                       }}
                     title={`${name}`}
@@ -73,7 +81,7 @@ const ProductCard: React.FC<ProductDetailProps> = ({ name, id, imgsrc, price, un
             </CardContent>
 
             <div className={isClicked ? style.dividerClick : style.divider}/>
-            <footer className={style.footer}>
+            <CardContent>
                 {isClicked ? (
                     <div className={style["footer-wrap"]}>
                         <div>
@@ -99,7 +107,7 @@ const ProductCard: React.FC<ProductDetailProps> = ({ name, id, imgsrc, price, un
                     </div>
                 )}
                 
-            </footer>
+            </CardContent>
         </CardActionArea>
     </Card>
   )

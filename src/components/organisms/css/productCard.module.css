@@ -10,14 +10,7 @@
     background: white;
 }
 
-.footer{
-    height: 50px;
-}
-
 .footer-wrap{
-    width: 100%;
-    margin: auto;
-    padding: 1rem;
     display: flex;
 }
 

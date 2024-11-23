@@ -1,9 +1,4 @@
 .ProductCard-Wrap{
-    display: none;
-}
-
-@media screen and (max-width: 350px) {
-    .ProductCard-Wrap{
-        display: block;
-    }
+    display: flex;
+    flex-wrap: wrap;
 }
