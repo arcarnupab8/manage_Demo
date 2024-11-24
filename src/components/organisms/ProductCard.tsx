@@ -2,8 +2,12 @@ import React, { useState } from 'react';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions';
 import CardActionArea from '@mui/material/CardActionArea';
 import Avatar from '@mui/material/Avatar';
+import Divider from '@mui/material/Divider';
+import Button from '@mui/material/Button';
+
 import ProductDetail from '../molecules/ProductDetail';
 import DeleteIcon from '../atom/icon/deleteIcon';
 import EditIcon from '../atom/icon/editIcon';
@@ -34,7 +38,6 @@ const ProductCard: React.FC<ProductDetailProps> = ({ name, id, imgsrc, price, un
     <Card 
         sx={{ 
             width: 300,
-            height: 430,
             bgcolor: isClicked ? '#0078D4' : '#E0EFFF',
             margin: "1rem 1rem",
         }}
@@ -59,56 +62,42 @@ const ProductCard: React.FC<ProductDetailProps> = ({ name, id, imgsrc, price, un
                             color: isClicked ? '#fff' : '#000',
                             fontSize: '32px'
                         },
-                      }}
-                      subheaderTypographyProps={{
+                    }}
+                    subheaderTypographyProps={{
                         sx: {
                             color: isClicked ? '#fff' : '#000',
                             fontSize: '16px'
                         },
-                      }}
+                    }}
                     title={`${name}`}
                     subheader={`${id}`}
                 />
-                <ProductDetail 
-                    imgsrc={imgsrc} 
-                    price={price} 
-                    unit={unit} 
-                    quantity={quantity} 
-                    status={status}
-                    isClicked={isClicked}
-                />
-            
-            </CardContent>
-
-            <div className={isClicked ? style.dividerClick : style.divider}/>
-            <CardContent>
-                {isClicked ? (
-                    <div className={style["footer-wrap"]}>
-                        <div>
-                            <DeleteHandleIcon/>
-                        </div>
-                        
-                        <div>
-                            <EditHandleIcon/>
-                        </div>
-                        
-                    </div>
-                    
-                ):(
-                    <div className={style["footer-wrap"]}>
-                        <div>
-                            <DeleteIcon/>
-                        </div>
-                        
-                        <div>
-                            <EditIcon/>
-                        </div>
-                        
-                    </div>
-                )}
+                    <ProductDetail 
+                        imgsrc={imgsrc} 
+                        price={price} 
+                        unit={unit} 
+                        quantity={quantity} 
+                        status={status}
+                        isClicked={isClicked}
+                    />
                 
-            </CardContent>
+                </CardContent>
         </CardActionArea>
+
+        <Divider/>
+        <CardActions 
+            sx={{
+                bgcolor:'#E0EFFF',
+            }}
+        >
+            <Button size="small" color="primary">
+                <EditIcon/>   
+            </Button>
+            <Button size="small" color="primary">
+                <DeleteIcon/>    
+            </Button>                  
+        </CardActions>
+        
     </Card>
   )
 }
