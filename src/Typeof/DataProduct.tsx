@@ -6,6 +6,7 @@ export interface Product{
     unit: string;
     status: boolean;
     own: boolean;
+    img: string;
 }
 
 export const Products: Product[] = [
@@ -17,6 +18,7 @@ export const Products: Product[] = [
         unit: 'แพ็ค',
         status: true,
         own: true,
+        img: '/productImg/product.png',
     },
     {
         id: '00001a',
@@ -26,6 +28,7 @@ export const Products: Product[] = [
         unit: 'แพ็ค',
         status: true,
         own: false,
+        img: '/productImg/product.png',
     },
     {
         id: '00001a',
@@ -35,6 +38,7 @@ export const Products: Product[] = [
         unit: 'แพ็ค',
         status: false,
         own: true,
+        img: '/productImg/product.png',
     },
     {
         id: '00001a',
@@ -44,6 +48,7 @@ export const Products: Product[] = [
         unit: 'แพ็ค',
         status: true,
         own: false,
+        img: '/productImg/product.png',
     },
     {
         id: '00001a',
@@ -53,6 +58,7 @@ export const Products: Product[] = [
         unit: 'แพ็ค',
         status: true,
         own: true,
+        img: '/productImg/product.png',
     },
     {
         id: '00001a',
@@ -62,5 +68,6 @@ export const Products: Product[] = [
         unit: 'แพ็ค',
         status: false,
         own: true,
+        img: '/productImg/product.png',
     },
 ]

@@ -12,12 +12,12 @@ const Stock: React.FC = () => {
           <ProductCard 
             name={item.name} 
             id={item.id} 
-            imgsrc={'product.png'} 
             price={item.price} 
             unit={item.unit} 
             quantity={item.quantity} 
             status={item.status}
             own={item.own}
+            img={'/productImg/product.png'} 
           />
         ))}
       </div>

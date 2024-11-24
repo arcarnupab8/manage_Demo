@@ -6,28 +6,26 @@ import CardActions from '@mui/material/CardActions';
 import CardActionArea from '@mui/material/CardActionArea';
 import Avatar from '@mui/material/Avatar';
 import Divider from '@mui/material/Divider';
-import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
 
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 import ProductDetail from '../molecules/ProductDetail';
-import DeleteIcon from '../atom/icon/deleteIcon';
-import EditIcon from '../atom/icon/editIcon';
-import DeleteHandleIcon from '../atom/icon/deleteHandleIcon';
-import EditHandleIcon from '../atom/icon/editHandleIcon';
 
 import style from './css/productCard.module.css';
 
 interface ProductDetailProps {
     name: string;
     id: string;
-    imgsrc: string;
     price: GLfloat;
     unit: string;
     quantity: number;
     status: boolean;
     own: boolean
+    img: string;
 }
 
-const ProductCard: React.FC<ProductDetailProps> = ({ name, id, imgsrc, price, unit, quantity, status, own  }) => {
+const ProductCard: React.FC<ProductDetailProps> = ({ name, id, img, price, unit, quantity, status, own  }) => {
     const [isClicked, setIsClicked] = useState(false);
 
     const handleCardClick = () => {
@@ -43,7 +41,11 @@ const ProductCard: React.FC<ProductDetailProps> = ({ name, id, imgsrc, price, un
         }}
     >
         <CardActionArea onClick={handleCardClick}>
-            <CardContent>
+            <CardContent
+                sx={{
+                    padding: 0,
+                }}
+            >
                 <CardHeader
                     avatar={
                         own ? (
@@ -73,7 +75,7 @@ const ProductCard: React.FC<ProductDetailProps> = ({ name, id, imgsrc, price, un
                     subheader={`${id}`}
                 />
                     <ProductDetail 
-                        imgsrc={imgsrc} 
+                        img={img} 
                         price={price} 
                         unit={unit} 
                         quantity={quantity} 
@@ -90,20 +92,20 @@ const ProductCard: React.FC<ProductDetailProps> = ({ name, id, imgsrc, price, un
             }}
         />
         <CardActions>
-            <Button size="small" color="primary">
-                { isClicked ? (
-                    <EditHandleIcon/>
-                ):(
-                    <EditIcon/>
-                )}   
-            </Button>
-            <Button size="small" color="primary">
-                { isClicked ? (
-                    <DeleteHandleIcon/>
-                ):(
-                    <DeleteIcon/> 
-                )}
-            </Button>                  
+            <IconButton aria-label="delete">
+                <EditIcon
+                    sx={{
+                        color: isClicked ? 'white' : 'black',
+                    }}
+                />
+            </IconButton>
+            <IconButton aria-label="delete">
+                <DeleteIcon
+                    sx={{
+                        color: isClicked ? 'white' : 'black',
+                    }}
+                />
+            </IconButton>                  
         </CardActions>
         
     </Card>

@@ -1,10 +1,12 @@
-import React from 'react'
+import React from 'react';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
 
 import style from './css/productdetail.module.css'
 import Detail from '../atom/Detail'
 
 interface ProductDetailProps {
-    imgsrc: string;
+    img: string;
     price: GLfloat;
     unit: string;
     quantity: number;
@@ -12,33 +14,38 @@ interface ProductDetailProps {
     isClicked: boolean;
 }
 
-const ProductDetail: React.FC<ProductDetailProps> = ({ imgsrc, price, unit, quantity, status, isClicked }) => {
+const ProductDetail: React.FC<ProductDetailProps> = ({ img, price, unit, quantity, status, isClicked }) => {
   return (
-    <div className={style.content}>
+    <CardContent
+        sx={{
+            padding: 0,
+        }}
+    >
 
-        <img 
+        <CardMedia
+            component="img" 
             alt='Product image'
-            src={`/productImg/${imgsrc}`}
+            image={`${img}`}
         />
                 
-            <div className={style.productInfo}>
-                <div>
-                    <Detail title='ราคา' result={null} resultNumber={price} selected={isClicked ? true : false }/>
-                    <Detail title='หน่วย' result={unit} resultNumber={null} selected={isClicked ? true : false }/>
-                </div>
+        <div className={style.productInfo}>
+            <div>
+                <Detail title='ราคา' result={null} resultNumber={price} selected={isClicked ? true : false }/>
+                <Detail title='หน่วย' result={unit} resultNumber={null} selected={isClicked ? true : false }/>
+            </div>
 
-                <div>
-                    <Detail title='จำนวน' result={null} resultNumber={quantity} selected={isClicked ? true : false }/>
-                    <Detail 
-                        title='สถานะ' 
-                        result={status === true ? "เปิดใช้งาน" : "ปิดใช้งาน"} 
-                        resultNumber={null}
-                        selected={isClicked ? true : false }
-                    />
-                </div>
+            <div>
+                <Detail title='จำนวน' result={null} resultNumber={quantity} selected={isClicked ? true : false }/>
+                <Detail 
+                    title='สถานะ' 
+                    result={status === true ? "เปิดใช้งาน" : "ปิดใช้งาน"} 
+                    resultNumber={null}
+                    selected={isClicked ? true : false }
+                />
+            </div>
         </div>
                 
-    </div>
+    </CardContent>
   )
 }
 

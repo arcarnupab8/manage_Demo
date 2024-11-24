@@ -1,21 +1,15 @@
 import React, { useContext, useState } from 'react'
  
 import style from './css/navbar.module.css';
-import bankIcon from '../atom/icon/bankIcon';
-import wallteHandleIcon from '../atom/icon/walletHandleIcon';
-import walletIcon from '../atom/icon/walletIcon';
-import bankHandleIcon from '../atom/icon/bankHandleIcon';
-import billIcon from '../atom/icon/billIcon';
-import billHandleIcon from '../atom/icon/billHandleIcon';
-import stockIcon from '../atom/icon/stockIcon';
-import stockHandleIcon from '../atom/icon/stockHandleIcon';
-import loggerIcon from '../atom/icon/loggerIcon';
-import loggerHandleIcon from '../atom/icon/loggerHandleIcon';
-import OptionIcon from '../atom/icon/optionIcon';
-import OptionHandleIcon from '../atom/icon/optionHandleIcon';
-import HamburgerIcon from '../atom/icon/hamburgerIcon';
-import NavItem from '../atom/NavItem';
+import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
+import WidgetsIcon from '@mui/icons-material/Widgets';
+import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import MenuIcon from '@mui/icons-material/Menu';
 import { WindowSizeContext } from '../context/WindowSizeContext';
+import NavItem from '../atom/NavItem';
 
 const Navbar: React.FC = () => {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -27,11 +21,11 @@ const Navbar: React.FC = () => {
     const { width } = context;
     
     const navItems = [
-        { text: 'รายรับ/รายจ่าย', icon: walletIcon, hoverIcon: wallteHandleIcon, navigatelink: '/' },
-        { text: 'กู้ยืม', icon: bankIcon, hoverIcon: bankHandleIcon, navigatelink: '/borrow' },
-        { text: 'ออกบิล', icon: billIcon, hoverIcon: billHandleIcon, navigatelink: '/bills' },
-        { text: 'สต็อก', icon: stockIcon, hoverIcon: stockHandleIcon, navigatelink: '/stock' },
-        { text: 'บันทึกเวลา', icon: loggerIcon, hoverIcon: loggerHandleIcon, navigatelink: '/times' },
+        { text: 'รายรับ/รายจ่าย', icon: <AccountBalanceWalletIcon/>, navigatelink: '/' },
+        { text: 'กู้ยืม', icon: <AccountBalanceIcon/>, navigatelink: '/borrow' },
+        { text: 'ออกบิล', icon: <ReceiptLongIcon/>, navigatelink: '/bills' },
+        { text: 'สต็อก', icon: <WidgetsIcon/>, navigatelink: '/stock' },
+        { text: 'บันทึกเวลา', icon: <AssignmentIndIcon/>, navigatelink: '/times' },
     ];
 
     const pathname = window.location.pathname;
@@ -45,11 +39,10 @@ const Navbar: React.FC = () => {
                             <NavItem
                                 text={item.text}
                                 icon={item.icon}
-                                hoverIcon={item.hoverIcon}
                                 navigatelink={item.navigatelink}
                                 isActive={window.location.pathname === item.navigatelink}
                                 isHovered={hoveredIndex === index}
-                                onHover={(hover) => setHoveredIndex(hover ? index : null)}
+                                onHover={(hover: boolean) => setHoveredIndex(hover ? index : null)}
                             />
                             <div className={style.divider}></div>
                             </React.Fragment>
@@ -58,14 +51,18 @@ const Navbar: React.FC = () => {
                 </ul>
                 
                 <div className={style.option}>
-                    <OptionIcon/>
+                    <MoreVertIcon/>
                 </div>
             </div>
             
         ) : (
             <div className={style.navMobile}>
                 <div>
-                    <HamburgerIcon/>
+                    <MenuIcon
+                        sx={{
+                            color: 'white',
+                        }}
+                    />
                 </div>
 
                 <div className={style["navItem-Wrap"]}>
@@ -76,7 +73,6 @@ const Navbar: React.FC = () => {
                                         key={index}
                                         text={item.text}
                                         icon={item.icon}
-                                        hoverIcon={item.hoverIcon}
                                         navigatelink={item.navigatelink}
                                         isActive={pathname === item.navigatelink}
                                         isHovered={hoveredIndex === index}
@@ -90,7 +86,11 @@ const Navbar: React.FC = () => {
                 </div>
 
                 <div>
-                    <OptionHandleIcon/>
+                    <MoreVertIcon
+                        sx={{
+                            color: 'white',
+                        }}
+                    />
                 </div>
             </div>
         )}

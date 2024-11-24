@@ -5,15 +5,14 @@ import style from './css/navitem.module.css';
 
 interface NavItemProps {
     text: string;
-    icon: React.FC;
-    hoverIcon: React.FC;
+    icon: JSX.Element;
     navigatelink: string;
     isActive: boolean;
     isHovered: boolean;
     onHover: (hover: boolean) => void;
 }
 
-const NavItem: React.FC<NavItemProps> = ({ text, icon: Icon, hoverIcon: HoverIcon, navigatelink, isActive, isHovered, onHover }) => {
+const NavItem: React.FC<NavItemProps> = ({ text, icon, navigatelink, isActive, isHovered, onHover }) => {
     const navigate = useNavigate();
 
     return (
@@ -23,7 +22,7 @@ const NavItem: React.FC<NavItemProps> = ({ text, icon: Icon, hoverIcon: HoverIco
             onMouseLeave={() => onHover(false)}
             onClick={() => navigate(navigatelink)}
         >
-            {isHovered || isActive ? <HoverIcon /> : <Icon />}
+            {icon}
             {text}
         </li>
     );
