@@ -84,17 +84,25 @@ const ProductCard: React.FC<ProductDetailProps> = ({ name, id, imgsrc, price, un
                 </CardContent>
         </CardActionArea>
 
-        <Divider/>
-        <CardActions 
+        <Divider
             sx={{
-                bgcolor:'#E0EFFF',
+                bgcolor: isClicked ? '#fff' : '#000',
             }}
-        >
+        />
+        <CardActions>
             <Button size="small" color="primary">
-                <EditIcon/>   
+                { isClicked ? (
+                    <EditHandleIcon/>
+                ):(
+                    <EditIcon/>
+                )}   
             </Button>
             <Button size="small" color="primary">
-                <DeleteIcon/>    
+                { isClicked ? (
+                    <DeleteHandleIcon/>
+                ):(
+                    <DeleteIcon/> 
+                )}
             </Button>                  
         </CardActions>
         
