@@ -9,7 +9,8 @@ const Stock: React.FC = () => {
     <div className={style.container}>
       <div className={style["ProductCard-Wrap"]}>
         {Products.map((item, index) => (
-          <ProductCard 
+          <ProductCard
+            key={index} 
             name={item.name} 
             id={item.id} 
             price={item.price} 

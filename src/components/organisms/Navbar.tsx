@@ -12,7 +12,6 @@ import { WindowSizeContext } from '../context/WindowSizeContext';
 import NavItem from '../atom/NavItem';
 
 const Navbar: React.FC = () => {
-    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
     const context = useContext(WindowSizeContext);
 
     if (!context) {
@@ -41,8 +40,6 @@ const Navbar: React.FC = () => {
                                 icon={item.icon}
                                 navigatelink={item.navigatelink}
                                 isActive={window.location.pathname === item.navigatelink}
-                                isHovered={hoveredIndex === index}
-                                onHover={(hover: boolean) => setHoveredIndex(hover ? index : null)}
                             />
                             <div className={style.divider}></div>
                             </React.Fragment>
@@ -75,8 +72,6 @@ const Navbar: React.FC = () => {
                                         icon={item.icon}
                                         navigatelink={item.navigatelink}
                                         isActive={pathname === item.navigatelink}
-                                        isHovered={hoveredIndex === index}
-                                        onHover={(hover) => setHoveredIndex(hover ? index : null)}
                                     />
                                 );
                             }

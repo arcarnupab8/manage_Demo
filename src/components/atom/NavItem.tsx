@@ -8,18 +8,15 @@ interface NavItemProps {
     icon: JSX.Element;
     navigatelink: string;
     isActive: boolean;
-    isHovered: boolean;
-    onHover: (hover: boolean) => void;
+
 }
 
-const NavItem: React.FC<NavItemProps> = ({ text, icon, navigatelink, isActive, isHovered, onHover }) => {
+const NavItem: React.FC<NavItemProps> = ({ text, icon, navigatelink, isActive }) => {
     const navigate = useNavigate();
 
     return (
         <li
             className={`${isActive ? style.active : ''}`}
-            onMouseEnter={() => onHover(true)}
-            onMouseLeave={() => onHover(false)}
             onClick={() => navigate(navigatelink)}
         >
             {icon}
