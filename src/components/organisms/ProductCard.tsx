@@ -17,26 +17,23 @@ import { Product_t } from '../../Typeof/DataProduct';
 
 interface ProductDetailProps {
     value: Product_t;
+    isClicked: boolean;
     onCardClick?: (id: string) => void;
+    onDelete?: (id: string) => void;
+    onEdit?: (id: string) => void;
 }
 
 const ProductCard: React.FC<ProductDetailProps> = (Prop) => {
-    const [isClicked, setIsClicked] = useState(false);
-
-    const handleCardClick = () => {
-        Prop.onCardClick?.(Prop.value.id);
-        setIsClicked((prev) => !prev);
-    };
 
   return (
     <Card 
         sx={{ 
             width: 300,
-            bgcolor: isClicked ? '#0078D4' : '#E0EFFF',
+            bgcolor: Prop.isClicked ? '#0078D4' : '#E0EFFF',
             margin: "1rem 1rem",
         }}
     >
-        <CardActionArea onClick={handleCardClick}>
+        <CardActionArea onClick={() => Prop.onCardClick?.(Prop.value.id)}>
             <CardContent 
                 sx={{
                     padding: 0,
@@ -57,13 +54,13 @@ const ProductCard: React.FC<ProductDetailProps> = (Prop) => {
                     }}
                     titleTypographyProps={{
                         sx: {
-                            color: isClicked ? '#fff' : '#000',
+                            color: Prop.isClicked ? '#fff' : '#000',
                             fontSize: '32px'
                         },
                     }}
                     subheaderTypographyProps={{
                         sx: {
-                            color: isClicked ? '#fff' : '#000',
+                            color: Prop.isClicked ? '#fff' : '#000',
                             fontSize: '16px'
                         },
                     }}
@@ -73,7 +70,7 @@ const ProductCard: React.FC<ProductDetailProps> = (Prop) => {
                 
                 <Divider
                     sx={{
-                        bgcolor: isClicked ? '#fff' : '#000',
+                        bgcolor: Prop.isClicked ? '#fff' : '#000',
                     }}
                 />
                 <ProductDetail 
@@ -82,7 +79,7 @@ const ProductCard: React.FC<ProductDetailProps> = (Prop) => {
                     unit={Prop.value.unit} 
                     quantity={Prop.value.quantity} 
                     status={Prop.value.status}
-                    isClicked={isClicked}
+                    isClicked={Prop.isClicked}
                 />
                 
             </CardContent>
@@ -90,21 +87,27 @@ const ProductCard: React.FC<ProductDetailProps> = (Prop) => {
 
         <Divider
             sx={{
-                bgcolor: isClicked ? '#fff' : '#000',
+                bgcolor: Prop.isClicked ? '#fff' : '#000',
             }}
         />
         <CardActions>
-            <IconButton aria-label="delete">
+            <IconButton 
+                aria-label="edit"
+                onClick={() => Prop.onEdit?.(Prop.value.id)}
+            >
                 <EditIcon
                     sx={{
-                        color: isClicked ? 'white' : 'black',
+                        color: Prop.isClicked ? 'white' : 'black',
                     }}
                 />
             </IconButton>
-            <IconButton aria-label="delete">
+            <IconButton 
+                aria-label="delete"
+                onClick={() => Prop.onDelete?.(Prop.value.id)}
+            >
                 <DeleteIcon
                     sx={{
-                        color: isClicked ? 'white' : 'black',
+                        color: Prop.isClicked ? 'white' : 'black',
                     }}
                 />
             </IconButton>                  
