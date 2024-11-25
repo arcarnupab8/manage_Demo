@@ -21,7 +21,7 @@ export const Products: Product_t[] = [
         img: '/productImg/product.png',
     },
     {
-        id: '00001a',
+        id: '00001b',
         name: 'ProductA',
         price: 100.0,
         quantity: 9999,
@@ -31,7 +31,7 @@ export const Products: Product_t[] = [
         img: '/productImg/product.png',
     },
     {
-        id: '00001a',
+        id: '00001c',
         name: 'ProductA',
         price: 100.0,
         quantity: 9999,
@@ -41,7 +41,7 @@ export const Products: Product_t[] = [
         img: '/productImg/product.png',
     },
     {
-        id: '00001a',
+        id: '00001d',
         name: 'ProductA',
         price: 100.0,
         quantity: 9999,
@@ -51,7 +51,7 @@ export const Products: Product_t[] = [
         img: '/productImg/product.png',
     },
     {
-        id: '00001a',
+        id: '00001e',
         name: 'ProductA',
         price: 100.0,
         quantity: 9999,
@@ -61,7 +61,7 @@ export const Products: Product_t[] = [
         img: '/productImg/product.png',
     },
     {
-        id: '00001a',
+        id: '00001f',
         name: 'ProductA',
         price: 100.0,
         quantity: 9999,
