@@ -1,7 +1,6 @@
 import React from 'react';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Divider from '@mui/material/Divider';
 
 import style from './css/productdetail.module.css'
 import Detail from '../atom/Detail'
