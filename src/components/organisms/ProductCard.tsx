@@ -29,6 +29,7 @@ const ProductCard: React.FC<ProductDetailProps> = ({ name, id, img, price, unit,
     const [isClicked, setIsClicked] = useState(false);
 
     const handleCardClick = () => {
+        
         setIsClicked((prev) => !prev);
     };
 
