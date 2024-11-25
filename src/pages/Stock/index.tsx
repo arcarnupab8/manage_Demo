@@ -5,6 +5,11 @@ import { Products } from '../../Typeof/DataProduct';
 import ProductCard from '../../components/organisms/ProductCard';
 
 const Stock: React.FC = () => {
+
+  const handleCardClick = (id: string) => {
+    console.log(id);
+  }
+
   return (
     <div className={style.container}>
       <div className={style["ProductCard-Wrap"]}>
@@ -12,6 +17,7 @@ const Stock: React.FC = () => {
           <ProductCard
             key={index} 
             value={item}
+            onCardClick={handleCardClick}
           />
         ))}
       </div>

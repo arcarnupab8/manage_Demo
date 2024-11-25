@@ -17,13 +17,14 @@ import { Product_t } from '../../Typeof/DataProduct';
 
 interface ProductDetailProps {
     value: Product_t;
+    onCardClick?: (id: string) => void;
 }
 
 const ProductCard: React.FC<ProductDetailProps> = (Prop) => {
     const [isClicked, setIsClicked] = useState(false);
 
     const handleCardClick = () => {
-        alert(Prop.value.id);
+        Prop.onCardClick?.(Prop.value.id);
         setIsClicked((prev) => !prev);
     };
 
