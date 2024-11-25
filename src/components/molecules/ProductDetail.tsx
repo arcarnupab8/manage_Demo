@@ -1,6 +1,7 @@
 import React from 'react';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
+import Divider from '@mui/material/Divider';
 
 import style from './css/productdetail.module.css'
 import Detail from '../atom/Detail'
@@ -19,9 +20,16 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ img, price, unit, quantit
     <CardContent
         sx={{
             padding: 0,
+            '&:last-child': {
+                padding: 0,
+            }
         }}
     >
-
+        <Divider
+            sx={{
+                bgcolor: isClicked ? '#fff' : '#000',
+            }}
+        />
         <CardMedia
             component="img" 
             alt='Product image'

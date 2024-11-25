@@ -1,4 +1,4 @@
-export interface Product{
+export interface Product_t{
     id: string;
     name: string;
     price: GLfloat;
@@ -9,7 +9,7 @@ export interface Product{
     img: string;
 }
 
-export const Products: Product[] = [
+export const Products: Product_t[] = [
     {
         id: '00001a',
         name: 'ProductA',

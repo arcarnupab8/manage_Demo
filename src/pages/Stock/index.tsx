@@ -11,14 +11,7 @@ const Stock: React.FC = () => {
         {Products.map((item, index) => (
           <ProductCard
             key={index} 
-            name={item.name} 
-            id={item.id} 
-            price={item.price} 
-            unit={item.unit} 
-            quantity={item.quantity} 
-            status={item.status}
-            own={item.own}
-            img={'/productImg/product.png'} 
+            value={item}
           />
         ))}
       </div>
