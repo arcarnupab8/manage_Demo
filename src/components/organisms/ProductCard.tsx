@@ -13,22 +13,17 @@ import EditIcon from '@mui/icons-material/Edit';
 import ProductDetail from '../molecules/ProductDetail';
 
 import style from './css/productCard.module.css';
+import { Product_t } from '../../Typeof/DataProduct';
 
 interface ProductDetailProps {
-    name: string;
-    id: string;
-    price: GLfloat;
-    unit: string;
-    quantity: number;
-    status: boolean;
-    own: boolean
-    img: string;
+    value: Product_t;
 }
 
-const ProductCard: React.FC<ProductDetailProps> = ({ name, id, img, price, unit, quantity, status, own  }) => {
+const ProductCard: React.FC<ProductDetailProps> = (Prop) => {
     const [isClicked, setIsClicked] = useState(false);
 
     const handleCardClick = () => {
+        alert(Prop.value.id);
         setIsClicked((prev) => !prev);
     };
 
@@ -41,14 +36,14 @@ const ProductCard: React.FC<ProductDetailProps> = ({ name, id, img, price, unit,
         }}
     >
         <CardActionArea onClick={handleCardClick}>
-            <CardContent
+            <CardContent 
                 sx={{
                     padding: 0,
                 }}
             >
                 <CardHeader
                     avatar={
-                        own ? (
+                        Prop.value.own ? (
                             <Avatar sx={{ bgcolor: "grey" }} aria-label="recipe">
                                 My
                             </Avatar>
@@ -71,19 +66,20 @@ const ProductCard: React.FC<ProductDetailProps> = ({ name, id, img, price, unit,
                             fontSize: '16px'
                         },
                     }}
-                    title={`${name}`}
-                    subheader={`${id}`}
+                    title={`${Prop.value.name}`}
+                    subheader={`${Prop.value.id}`}
                 />
-                    <ProductDetail 
-                        img={img} 
-                        price={price} 
-                        unit={unit} 
-                        quantity={quantity} 
-                        status={status}
-                        isClicked={isClicked}
-                    />
+
+                <ProductDetail 
+                    img={Prop.value.img} 
+                    price={Prop.value.price} 
+                    unit={Prop.value.unit} 
+                    quantity={Prop.value.quantity} 
+                    status={Prop.value.status}
+                    isClicked={isClicked}
+                />
                 
-                </CardContent>
+            </CardContent>
         </CardActionArea>
 
         <Divider
