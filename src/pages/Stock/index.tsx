@@ -5,16 +5,10 @@ import { Products } from '../../Typeof/DataProduct';
 import ProductCard from '../../components/organisms/ProductCard';
 
 const Stock: React.FC = () => {
-  const [selectedIds, setSelectedIds] = useState<string[]>([]);
 
   const handleCardClick = (id: string) => {
-    setSelectedIds((prevSelected) => {
-      if (prevSelected.includes(id)) {
-        return prevSelected.filter((selectedId) => selectedId !== id);
-      } else {
-        return [...prevSelected, id];
-      }
-    });
+    alert(`Selected product on ID: ${id}`);
+    return id;
   }
 
   const handleDeleteProduct = (id: string) => {
@@ -25,7 +19,6 @@ const Stock: React.FC = () => {
     alert(`Edit product on ID: ${id}`);
   }
 
-  console.log("Selected IDs:", selectedIds);
   return (
     <div className={style.container}>
       <div className={style["ProductCard-Wrap"]}>
@@ -33,7 +26,6 @@ const Stock: React.FC = () => {
           <ProductCard
             key={index} 
             value={item}
-            isClicked={selectedIds.includes(item.id)}
             onCardClick={handleCardClick}
             onDelete={handleDeleteProduct}
             onEdit={handleEditProduct}

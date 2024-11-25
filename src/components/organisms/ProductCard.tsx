@@ -17,7 +17,6 @@ import { Product_t } from '../../Typeof/DataProduct';
 
 interface ProductDetailProps {
     value: Product_t;
-    isClicked: boolean;
     onCardClick?: (id: string) => void;
     onDelete?: (id: string) => void;
     onEdit?: (id: string) => void;
@@ -29,7 +28,7 @@ const ProductCard: React.FC<ProductDetailProps> = (Prop) => {
     <Card 
         sx={{ 
             width: 300,
-            bgcolor: Prop.isClicked ? '#0078D4' : '#E0EFFF',
+            bgcolor: Prop.value.status ? '#0078D4' : '#E0EFFF',
             margin: "1rem 1rem",
         }}
     >
@@ -54,13 +53,13 @@ const ProductCard: React.FC<ProductDetailProps> = (Prop) => {
                     }}
                     titleTypographyProps={{
                         sx: {
-                            color: Prop.isClicked ? '#fff' : '#000',
+                            color: Prop.value.status ? '#fff' : '#000',
                             fontSize: '32px'
                         },
                     }}
                     subheaderTypographyProps={{
                         sx: {
-                            color: Prop.isClicked ? '#fff' : '#000',
+                            color: Prop.value.status ? '#fff' : '#000',
                             fontSize: '16px'
                         },
                     }}
@@ -70,7 +69,7 @@ const ProductCard: React.FC<ProductDetailProps> = (Prop) => {
                 
                 <Divider
                     sx={{
-                        bgcolor: Prop.isClicked ? '#fff' : '#000',
+                        bgcolor: Prop.value.status ? '#fff' : '#000',
                     }}
                 />
                 <ProductDetail 
@@ -79,7 +78,6 @@ const ProductCard: React.FC<ProductDetailProps> = (Prop) => {
                     unit={Prop.value.unit} 
                     quantity={Prop.value.quantity} 
                     status={Prop.value.status}
-                    isClicked={Prop.isClicked}
                 />
                 
             </CardContent>
@@ -87,7 +85,7 @@ const ProductCard: React.FC<ProductDetailProps> = (Prop) => {
 
         <Divider
             sx={{
-                bgcolor: Prop.isClicked ? '#fff' : '#000',
+                bgcolor: Prop.value.status ? '#fff' : '#000',
             }}
         />
         <CardActions>
@@ -97,7 +95,7 @@ const ProductCard: React.FC<ProductDetailProps> = (Prop) => {
             >
                 <EditIcon
                     sx={{
-                        color: Prop.isClicked ? 'white' : 'black',
+                        color: Prop.value.status ? 'white' : 'black',
                     }}
                 />
             </IconButton>
@@ -107,7 +105,7 @@ const ProductCard: React.FC<ProductDetailProps> = (Prop) => {
             >
                 <DeleteIcon
                     sx={{
-                        color: Prop.isClicked ? 'white' : 'black',
+                        color: Prop.value.status ? 'white' : 'black',
                     }}
                 />
             </IconButton>                  

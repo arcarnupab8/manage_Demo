@@ -11,10 +11,9 @@ interface ProductDetailProps {
     unit: string;
     quantity: number;
     status: boolean;
-    isClicked: boolean;
 }
 
-const ProductDetail: React.FC<ProductDetailProps> = ({ img, price, unit, quantity, status, isClicked }) => {
+const ProductDetail: React.FC<ProductDetailProps> = ({ img, price, unit, quantity, status }) => {
   return (
     <CardContent
         sx={{
@@ -33,17 +32,17 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ img, price, unit, quantit
                 
         <div className={style.productInfo}>
             <div>
-                <Detail title='ราคา' result={null} resultNumber={price} selected={isClicked ? true : false }/>
-                <Detail title='หน่วย' result={unit} resultNumber={null} selected={isClicked ? true : false }/>
+                <Detail title='ราคา' result={null} resultNumber={price} stauts={status === true ? true : false }/>
+                <Detail title='หน่วย' result={unit} resultNumber={null} stauts={status === true ? true : false }/>
             </div>
 
             <div>
-                <Detail title='จำนวน' result={null} resultNumber={quantity} selected={isClicked ? true : false }/>
+                <Detail title='จำนวน' result={null} resultNumber={quantity} stauts={status === true ? true : false }/>
                 <Detail 
                     title='สถานะ' 
                     result={status === true ? "เปิดใช้งาน" : "ปิดใช้งาน"} 
                     resultNumber={null}
-                    selected={isClicked ? true : false }
+                    stauts={status === true ? true : false }
                 />
             </div>
         </div>
