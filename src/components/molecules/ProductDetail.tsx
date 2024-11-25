@@ -25,11 +25,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ img, price, unit, quantit
             }
         }}
     >
-        <Divider
-            sx={{
-                bgcolor: isClicked ? '#fff' : '#000',
-            }}
-        />
+        
         <CardMedia
             component="img" 
             alt='Product image'

@@ -69,7 +69,12 @@ const ProductCard: React.FC<ProductDetailProps> = (Prop) => {
                     title={`${Prop.value.name}`}
                     subheader={`${Prop.value.id}`}
                 />
-
+                
+                <Divider
+                    sx={{
+                        bgcolor: isClicked ? '#fff' : '#000',
+                    }}
+                />
                 <ProductDetail 
                     img={Prop.value.img} 
                     price={Prop.value.price} 
