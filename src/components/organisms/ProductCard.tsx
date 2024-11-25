@@ -23,7 +23,7 @@ const ProductCard: React.FC<ProductDetailProps> = (Prop) => {
     const [isClicked, setIsClicked] = useState(false);
 
     const handleCardClick = () => {
-
+        alert(Prop.value.id);
         setIsClicked((prev) => !prev);
     };
 
