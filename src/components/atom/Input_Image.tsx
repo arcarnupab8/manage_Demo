@@ -32,7 +32,7 @@ const Input_Image: React.FC<InputImgProps> = ( Prop ) => {
         type="file"
         accept="image/*"
         className={style.hiddenInput}
-        onChange={Prop.onFileChange} // ใช้ฟังก์ชันที่ส่งมาจาก page
+        onChange={Prop.onFileChange} 
       />
     </div>
   );
