@@ -14,7 +14,7 @@ const Bills: React.FC = () => {
         return;
       }
       const reader = new FileReader();
-      reader.onload = () => setImage(reader.result as string); // อัปเดตภาพที่อัปโหลด
+      reader.onload = () => setImage(reader.result as string);
       reader.readAsDataURL(file);
     }
   };
