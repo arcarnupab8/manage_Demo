@@ -5,26 +5,14 @@ import style from './css/inputImage.module.css';
 
 interface InputImgProps {
   img: string | null; 
-  onImageChange: (newImg: string | null) => void; 
+  onFileChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Input_Image: React.FC<InputImgProps> = ({ img, onImageChange }) => {
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      if (!file.type.includes("image/")) {
-        alert("กรุณาอัพโหลดไฟล์รูปภาพเท่านั้น");
-        return;
-      }
-      const reader = new FileReader();
-      reader.onload = () => onImageChange(reader.result as string);
-      reader.readAsDataURL(file);
-    }
-  };
+const Input_Image: React.FC<InputImgProps> = ( Prop ) => {
 
   return (
     <div className={style.content}>
-      {!img && (
+      {!Prop.img && (
         <LocalHospitalIcon
           sx={{
             color: "#0000008A",
@@ -38,13 +26,13 @@ const Input_Image: React.FC<InputImgProps> = ({ img, onImageChange }) => {
         />
       )}
 
-      {img && <img src={img} alt="Uploaded" className={style.uploadedImage} />}
+      {Prop.img && <img src={Prop.img} alt="Uploaded" className={style.uploadedImage} />}
 
       <input
         type="file"
         accept="image/*"
         className={style.hiddenInput}
-        onChange={handleFileChange}
+        onChange={Prop.onFileChange} // ใช้ฟังก์ชันที่ส่งมาจาก page
       />
     </div>
   );
