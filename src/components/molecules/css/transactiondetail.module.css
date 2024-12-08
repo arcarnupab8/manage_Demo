@@ -1,0 +1,22 @@
+.outComeBox{
+    border: 1px solid;
+}
+
+.title{
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 16px 4px 16px;
+}
+.title > p{
+    font-size: 24px;
+    font-weight: 400;
+}
+.title > p:nth-child(2){
+    color: red;
+}
+
+.detial{
+    margin: 0px 16px 16px 16px;
+    color: #686868;
+    font-style: italic;
+}

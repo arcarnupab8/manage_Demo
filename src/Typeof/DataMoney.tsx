@@ -4,18 +4,6 @@ interface moneyPerMonth {
     month: Date;
 }
 
-interface moneyPerDay {
-    income: GLfloat;
-    date: Date;
-}
-
-interface expensesPerDay{
-    expenses: GLfloat;
-    date: Date;
-    name: string;
-    details: string;
-}
-
 export const moneyPerMonthData: moneyPerMonth[] = [
     {
         income: 30000,
@@ -34,44 +22,60 @@ export const moneyPerMonthData: moneyPerMonth[] = [
     },
 ];
 
-export const moneyPerDayData: moneyPerDay[] = [
-    { income: 1000, date: new Date(2024, 7, 5) },
-    { income: 1500, date: new Date(2024, 7, 15) },
-    { income: 1200, date: new Date(2024, 8, 5) },
-    { income: 1700, date: new Date(2024, 8, 15) },
-    { income: 2200, date: new Date(2024, 8, 25) },
-    { income: 1100, date: new Date(2024, 9, 5) },
-    { income: 1600, date: new Date(2024, 9, 15) },
-    { income: 2100, date: new Date(2024, 9, 25) },
+export interface Outcome {
+    money: number;
+    name: string;
+    description: string;
+}
+
+export interface DailyMoney {
+    income: number;
+    at: Date;
+    outcomes: Outcome[]|null;
+}
+
+export const DailyMoneyList: DailyMoney[] = [
+    {
+        income: 300.50,
+        at: new Date(2024, 7, 3),
+        outcomes: [
+            {
+                money: 900,
+                name: "Hobby",
+                description: "Buy hobby toy."
+            },
+            {
+                money: 200.50,
+                name: "Eating",
+                description: "Buy drinks and dinner."
+            }
+        ]
+    },
+    {
+        income: 400.00,
+        at: new Date(2024, 8, 12),
+        outcomes: [
+            {
+                money: 200.00,
+                name: "Eating",
+                description: "Buy drinks and dinner."
+            }
+        ]
+    },
+    {
+        income: 1000000.25,
+        at: new Date(2024, 9, 17),
+        outcomes: [
+            {
+                money: 9000.00,
+                name: "Eating",
+                description: "Buy drinks and dinner."
+            }
+        ]
+    }
 ];
 
-export const expensesPerDayData: expensesPerDay[] = [
-    { expenses: 250.50, date: new Date(2024, 7, 5), name: "ซื้อของเซเว่น", details: 'น้ำ ขนม ชานม ข้าวได่ทอด' },
-    { expenses: 100.00, date: new Date(2024, 7, 5), name: "ซื้อของเซเว่น", details: 'น้ำ ขนม ชานม ข้าวได่ทอด' },
-    { expenses: 0.50, date: new Date(2024, 7, 5), name: "ซื้อของเซเว่น", details: 'น้ำ ขนม ชานม ข้าวได่ทอด' },
-
-    { expenses: 250.50, date: new Date(2024, 7, 15), name: "ซื้อของเซเว่น", details: 'น้ำ ขนม ชานม ข้าวได่ทอด' },
-    { expenses: 1000.00, date: new Date(2024, 7, 15), name: "ซื้อของเซเว่น", details: 'น้ำ ขนม ชานม ข้าวได่ทอด' },
-
-    { expenses: 250.50, date: new Date(2024, 8, 5), name: "ซื้อของเซเว่น", details: 'น้ำ ขนม ชานม ข้าวได่ทอด' },
-    { expenses: 100.00, date: new Date(2024, 8, 5), name: "ซื้อของเซเว่น", details: 'น้ำ ขนม ชานม ข้าวได่ทอด' },
-    { expenses: 0.50, date: new Date(2024, 8, 5), name: "ซื้อของเซเว่น", details: 'น้ำ ขนม ชานม ข้าวได่ทอด' },
-    { expenses: 500, date: new Date(2024, 8, 5), name: "ซื้อของเซเว่น", details: 'น้ำ ขนม ชานม ข้าวได่ทอด' },
-
-    { expenses: 250.50, date: new Date(2024, 8, 15), name: "ซื้อของเซเว่น", details: 'น้ำ ขนม ชานม ข้าวได่ทอด' },
-    { expenses: 1000.00, date: new Date(2024, 8, 15), name: "ซื้อของเซเว่น", details: 'น้ำ ขนม ชานม ข้าวได่ทอด' },
-
-    { expenses: 500.50, date: new Date(2024, 8, 25), name: "ซื้อของเซเว่น", details: 'น้ำ ขนม ชานม ข้าวได่ทอด' },
-    { expenses: 0, date: new Date(2024, 8, 25), name: "ซื้อของเซเว่น", details: 'น้ำ ขนม ชานม ข้าวได่ทอด' },
-
-    { expenses: 250.50, date: new Date(2024, 9, 5), name: "ซื้อของเซเว่น", details: 'น้ำ ขนม ชานม ข้าวได่ทอด' },
-    { expenses: 100.00, date: new Date(2024, 9, 5), name: "ซื้อของเซเว่น", details: 'น้ำ ขนม ชานม ข้าวได่ทอด' },
-    { expenses: 0.50, date: new Date(2024, 9, 5), name: "ซื้อของเซเว่น", details: 'น้ำ ขนม ชานม ข้าวได่ทอด' },
-    { expenses: 500, date: new Date(2024, 9, 5), name: "ซื้อของเซเว่น", details: 'น้ำ ขนม ชานม ข้าวได่ทอด' },
-
-    { expenses: 250.50, date: new Date(2024, 9, 15), name: "ซื้อของเซเว่น", details: 'น้ำ ขนม ชานม ข้าวได่ทอด' },
-    { expenses: 1000.00, date: new Date(2024, 9, 15), name: "ซื้อของเซเว่น", details: 'น้ำ ขนม ชานม ข้าวได่ทอด' },
-
-    { expenses: 500.50, date: new Date(2024, 9, 25), name: "ซื้อของเซเว่น", details: 'น้ำ ขนม ชานม ข้าวได่ทอด' },
-    { expenses: 0, date: new Date(2024, 9, 25), name: "ซื้อของเซเว่น", details: 'น้ำ ขนม ชานม ข้าวได่ทอด' },
-];
+export interface TextMoneyPropS {
+    Day: number,
+    Money: number
+}
