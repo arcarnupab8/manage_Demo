@@ -2,18 +2,19 @@ import React from 'react'
 import AccordionSummary from '@mui/material/AccordionSummary';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-import Text_Money from '../atom/Text_Money';
-import { TextMoneyPropS } from '../../Typeof/DataMoney';
+import Text_Money, { TextMoneyPropS } from '../atom/Text_Money';
+
+const AccordionSummaryBox: React.CSSProperties = {
+  width: "350px",
+  height: "67px",
+  background: "#0078D4",
+  color: "white"
+}
 
 const DailyTotal: React.FC<TextMoneyPropS> = (Props) => {
   return (
     <AccordionSummary
-      sx={{
-        width: "350px",
-        height: "67px",
-        background: "#0078D4",
-        color: "white"
-      }}
+      sx={AccordionSummaryBox}
       expandIcon={
         <ExpandMoreIcon 
           sx={{

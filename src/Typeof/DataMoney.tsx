@@ -22,60 +22,55 @@ export const moneyPerMonthData: moneyPerMonth[] = [
     },
 ];
 
-export interface Outcome {
-    money: number;
-    name: string;
-    description: string;
-}
-
 export interface DailyMoney {
-    income: number;
+    money: number;
     at: Date;
-    outcomes: Outcome[]|null;
+    Income: boolean;
+    name: string|null;
+    description: string|null;
 }
 
 export const DailyMoneyList: DailyMoney[] = [
     {
-        income: 300.50,
+        money: 200.50,
         at: new Date(2024, 7, 3),
-        outcomes: [
-            {
-                money: 900,
-                name: "Hobby",
-                description: "Buy hobby toy."
-            },
-            {
-                money: 200.50,
-                name: "Eating",
-                description: "Buy drinks and dinner."
-            }
-        ]
+        Income: true,
+        name: "Part time",
+        description: null,
     },
     {
-        income: 400.00,
-        at: new Date(2024, 8, 12),
-        outcomes: [
-            {
-                money: 200.00,
-                name: "Eating",
-                description: "Buy drinks and dinner."
-            }
-        ]
+        money: 100.00,
+        at: new Date(2024, 7, 3),
+        Income: false,
+        name: "Eating",
+        description: "Buying drinks and food dinner.",
     },
     {
-        income: 1000000.25,
-        at: new Date(2024, 9, 17),
-        outcomes: [
-            {
-                money: 9000.00,
-                name: "Eating",
-                description: "Buy drinks and dinner."
-            }
-        ]
+        money: 125.75,
+        at: new Date(2024, 7, 3),
+        Income: false,
+        name: "Hobby",
+        description: "Buying toys.",
+    },
+    {
+        money: 400.00,
+        at: new Date(2024, 8, 2),
+        Income: true,
+        name: "Part time",
+        description: null,
+    },
+    {
+        money: 150.00,
+        at: new Date(2024, 8, 2),
+        Income: false,
+        name: "Eating",
+        description: "Buying drinks and food dinner.",
+    },
+    {
+        money: 10000.50,
+        at: new Date(2024, 10, 1),
+        Income: true,
+        name: "Income month",
+        description: null,
     }
 ];
-
-export interface TextMoneyPropS {
-    Day: number,
-    Money: number
-}
