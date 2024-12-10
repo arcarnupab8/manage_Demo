@@ -1,11 +1,9 @@
 import React from 'react'
 import Accordion from '@mui/material/Accordion';
 
-import style from './css/dailytotallist.module.css';
 import DailyTotal from './DailyTotal';
 import TransactionDetail from './TransactionDetail';
 import { DailyMoney } from '../../Typeof/DataMoney';
-import { data } from 'react-router-dom';
 
 /* Style */
 
@@ -16,28 +14,29 @@ const AccordionBox: React.CSSProperties = {
 /* Style */
 
 interface DailyTotalListProps {
-  data: DailyMoney[];
+  value: DailyMoney;
 }
 
-const DailyTotalList: React.FC<DailyTotalListProps> = ({ data }) => {
+const DailyTotalList: React.FC<DailyTotalListProps> = (Props) => {
+  const { transactions, at } = Props.value;
 
-  const totalMoney = data.reduce((sum, item) => {
-    return item.Income ? sum + item.money : sum - item.money;
+  const totalMoney = transactions.reduce((sum, transaction) => {
+    return transaction.Income ? sum + transaction.money : sum - transaction.money;
   }, 0);
-  const dateNumber = data[0]?.at.getDate();
+  const dateNumber = at.getDate();
 
   return (
     <Accordion
       sx={AccordionBox}
     >
       <DailyTotal Day={dateNumber} Money={totalMoney} />
-      {data.map((transaction, index) => (
+
+      {transactions.map((transaction, index) => (
         <TransactionDetail
           key={index}
           name={transaction.name}
           money={transaction.money}
           description={transaction.description}
-          at={transaction.at}
           Income={transaction.Income}
         />
       ))}

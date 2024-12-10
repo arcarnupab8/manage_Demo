@@ -1,7 +1,7 @@
 import React from 'react'
 import AccordionDetails from '@mui/material/AccordionDetails';
 
-import { DailyMoney } from '../../Typeof/DataMoney';
+import { transactionProp } from '../../Typeof/DataMoney';
 
 /* Style */
 
@@ -33,7 +33,7 @@ const detailp: React.CSSProperties = {
 
 /* Style */
 
-const TransactionDetail: React.FC<DailyMoney> = (Props) => {
+const TransactionDetail: React.FC<transactionProp> = (Props) => {
 
   const formatMoney = (amount: number) => {
     return new Intl.NumberFormat('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(amount);

@@ -22,55 +22,69 @@ export const moneyPerMonthData: moneyPerMonth[] = [
     },
 ];
 
-export interface DailyMoney {
+export interface transactionProp {
     money: number;
-    at: Date;
     Income: boolean;
     name: string|null;
     description: string|null;
 }
 
+export interface DailyMoney {
+    at: Date;
+    transactions: transactionProp[];
+}
+
 export const DailyMoneyList: DailyMoney[] = [
     {
-        money: 200.50,
         at: new Date(2024, 7, 3),
-        Income: true,
-        name: "Part time",
-        description: null,
+        transactions: [
+            {
+                money: 200.50,
+                Income: true,
+                name: "Part time",
+                description: null,
+            },
+            {
+                money: 100.00,
+                Income: false,
+                name: "Eating",
+                description: "Buying drinks and food dinner.",
+            },
+            {
+                money: 125.75,
+                Income: false,
+                name: "Hobby",
+                description: "Buying toys.",
+            }
+        ]
     },
     {
-        money: 100.00,
-        at: new Date(2024, 7, 3),
-        Income: false,
-        name: "Eating",
-        description: "Buying drinks and food dinner.",
-    },
-    {
-        money: 125.75,
-        at: new Date(2024, 7, 3),
-        Income: false,
-        name: "Hobby",
-        description: "Buying toys.",
-    },
-    {
-        money: 400.00,
         at: new Date(2024, 8, 2),
-        Income: true,
-        name: "Part time",
-        description: null,
+        transactions: [
+            {
+                money: 400.00,
+                Income: true,
+                name: "Part time",
+                description: null,
+            },
+            {
+                money: 150.00,
+                Income: false,
+                name: "Eating",
+                description: "Buying drinks and food dinner.",
+            }
+        ]
     },
     {
-        money: 150.00,
-        at: new Date(2024, 8, 2),
-        Income: false,
-        name: "Eating",
-        description: "Buying drinks and food dinner.",
-    },
-    {
-        money: 10000.50,
         at: new Date(2024, 10, 1),
-        Income: true,
-        name: "Income month",
-        description: null,
-    }
+        transactions: [
+            {
+                money: 10000.50,
+                Income: true,
+                name: "Income month",
+                description: null,
+            }
+        ] 
+    },
+    
 ];
