@@ -1,3 +1,5 @@
+import { DailyMoneyProps } from "../components/molecules/DailyTotalList";
+
 interface moneyPerMonth {
     income: GLfloat;
     expenses: GLfloat;
@@ -22,35 +24,26 @@ export const moneyPerMonthData: moneyPerMonth[] = [
     },
 ];
 
-export interface transactionProp {
-    money: number;
-    Income: boolean;
-    name: string|null;
-    description: string|null;
-}
-
-export interface DailyMoney {
-    at: Date;
-    transactions: transactionProp[];
-}
-
-export const DailyMoneyList: DailyMoney[] = [
+export const DailyMoneyList: DailyMoneyProps[] = [
     {
         at: new Date(2024, 7, 3),
         transactions: [
             {
+                id: "7324_0001",
                 money: 200.50,
                 Income: true,
                 name: "Part time",
                 description: null,
             },
             {
+                id: "7324_0002",
                 money: 100.00,
                 Income: false,
                 name: "Eating",
                 description: "Buying drinks and food dinner.",
             },
             {
+                id: "7324_0003",
                 money: 125.75,
                 Income: false,
                 name: "Hobby",
@@ -62,12 +55,14 @@ export const DailyMoneyList: DailyMoney[] = [
         at: new Date(2024, 8, 2),
         transactions: [
             {
+                id: "8224_0001",
                 money: 400.00,
                 Income: true,
                 name: "Part time",
                 description: null,
             },
             {
+                id: "8224_0001",
                 money: 150.00,
                 Income: false,
                 name: "Eating",
@@ -79,6 +74,7 @@ export const DailyMoneyList: DailyMoney[] = [
         at: new Date(2024, 10, 1),
         transactions: [
             {
+                id: "10124_0001",
                 money: 10000.50,
                 Income: true,
                 name: "Income month",

@@ -1,7 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
 import AccordionDetails from '@mui/material/AccordionDetails';
-
-import { transactionProp } from '../../Typeof/DataMoney';
 
 /* Style */
 
@@ -9,6 +7,12 @@ const container: React.CSSProperties = {
   border: "1px solid",
   padding: "8px 16px 16px 16px",
 };
+
+const elementHover: React.CSSProperties = {
+  ...container,
+  cursor: "pointer",
+  background: "#E8E8E8"
+}
 
 const title: React.CSSProperties = {
   display: "flex",
@@ -33,7 +37,21 @@ const detailp: React.CSSProperties = {
 
 /* Style */
 
+/* Props */
+
+export interface transactionProp {
+  id: string;
+  money: number;
+  Income: boolean;
+  name: string|null;
+  description: string|null;
+  onClick?: (id: string) => void;
+}
+
+/* Props */
+
 const TransactionDetail: React.FC<transactionProp> = (Props) => {
+  const [hover, setHover] = useState(false);
 
   const formatMoney = (amount: number) => {
     return new Intl.NumberFormat('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(amount);
@@ -49,8 +67,13 @@ const TransactionDetail: React.FC<transactionProp> = (Props) => {
       sx={{
         padding: "0"
       }}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
     >
-      <div style={container}>
+      <div 
+        style={hover ? elementHover : container}
+        onClick={() => Props.onClick?.(Props.id)}
+      >
         <div style={title}>
           <p style={titlep}>{Props.name}</p>
           <p style={titleStyle}>{Props.Income === true ? (

@@ -2,8 +2,7 @@ import React from 'react'
 import Accordion from '@mui/material/Accordion';
 
 import DailyTotal from './DailyTotal';
-import TransactionDetail from './TransactionDetail';
-import { DailyMoney } from '../../Typeof/DataMoney';
+import TransactionDetail, { transactionProp } from './TransactionDetail';
 
 /* Style */
 
@@ -13,9 +12,18 @@ const AccordionBox: React.CSSProperties = {
 
 /* Style */
 
-interface DailyTotalListProps {
-  value: DailyMoney;
+/* Props */
+
+export interface DailyMoneyProps {
+  at: Date;
+  transactions: transactionProp[];
 }
+
+interface DailyTotalListProps {
+  value: DailyMoneyProps;
+}
+
+/* Props */
 
 const DailyTotalList: React.FC<DailyTotalListProps> = (Props) => {
   const { transactions, at } = Props.value;
@@ -24,6 +32,10 @@ const DailyTotalList: React.FC<DailyTotalListProps> = (Props) => {
     return transaction.Income ? sum + transaction.money : sum - transaction.money;
   }, 0);
   const dateNumber = at.getDate();
+
+  const transactionSelected = (id: string) => {
+    alert(`Selected transaction at ${id}`);
+  }
 
   return (
     <Accordion
@@ -34,10 +46,12 @@ const DailyTotalList: React.FC<DailyTotalListProps> = (Props) => {
       {transactions.map((transaction, index) => (
         <TransactionDetail
           key={index}
+          id={transaction.id}
           name={transaction.name}
           money={transaction.money}
           description={transaction.description}
           Income={transaction.Income}
+          onClick={transactionSelected}
         />
       ))}
     </Accordion>
